@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Aadu puli attam</title>
+</head>
+
+<body>
+    <div class='game-state'>Select or place a goat</div>
+    <div class = 'game-over hidden'>
+    <div class = 'goscreen'>
+        <h1 class = 'gotitle'>GAME OVER</h1>
+        <h1 class='winner'></h1>
+        <button class = 'restart'>Restart the game</button>
+    </div>
+    
+    </div>
+    
+    <div>
+        <div class='rules'>
+            <div class= 'rule-children'>
+                <div class = 'heading-top'>Whose turn?</div>
+                <div class = 'heading'>Goat</div>
+                               
+                <div class = 'goat-count'> <span class = 'hmg'>15 </span></div> goats left <br>to be placed 
+                
+                <div class = 'dead-goats'> <span id = 'dead-goats-count'>0</span> <br> dead goats</div> 
+                <div class = 'legend'>
+                    <ul>
+                        <li>Goats are blue                         
+                        </li>
+                        <li>Tigers are orange</li>
+                    </ul>
+                </div>
+                <div class = 'rules-list'>
+                    <ul>
+                        <li>Place a goat at any of the empty circles to begin the game</li>
+                        <li>Turn will be shown at the top</li>
+                        <li>Click on a tiger or goat to move it, you can only move goats after the 15 goats have been placed first</li>
+                        <li>After clicking on a tiger or goat, click on one of the translucent spaces to move the piece there</li>
+                        <li>The game ends when either 5 goats have died or the tigers have no place to move left</li>
+                    </ul>
+                </div>
+            </div>
+        
+        </div>
+        <div class="board">
+            <div style="padding: 2%;">
+                <svg width="70%" height="70%" viewBox="0 0 100 100">                    
+                    <line x1="50" y1="5" x2="15" y2="95" stroke-width="1" stroke="rgb(0,0,0)"></line><line x1="50" y1="5" x2="40" y2="95" stroke-width="1" stroke="rgb(0,0,0)"></line><line x1="50" y1="5" x2="60" y2="95" stroke-width="1" stroke="rgb(0,0,0)"></line><line x1="50" y1="5" x2="85" y2="95" stroke-width="1" stroke="rgb(0,0,0)"></line><line x1="15" y1="95" x2="85" y2="95" stroke-width="1" stroke="rgb(0,0,0)"></line><line x1="15" y1="30" x2="85" y2="30" stroke-width="1" stroke="rgb(0,0,0)"></line><line x1="15" y1="50" x2="85" y2="50" stroke-width="1" stroke="rgb(0,0,0)"></line><line x1="15" y1="70" x2="85" y2="70" stroke-width="1" stroke="rgb(0,0,0)"></line><line x1="15" y1="30" x2="15" y2="70" stroke-width="1" stroke="rgb(0,0,0)"></line><line x1="85" y1="30" x2="85" y2="70" stroke-width="1" stroke="rgb(0,0,0)"></line>
+                   
+                    <circle id = 'pos-1' class = 'tiger pos'cx="50" cy="5" r="2" stroke="black" fill="orange" stroke-width="1" fill-opacity="1"></circle>
+                    <circle id = 'pos-2' class = 'pos'cx="15" cy="30" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                    <circle id = 'pos-3' class = 'pos'cx="40" cy="30" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                    <circle id='pos-4' class = 'tiger pos'cx="47" cy="30" r="2" stroke="black" fill="orange" stroke-width="1" fill-opacity="1"></circle>
+                    <circle id='pos-5' class = 'tiger pos' cx="53" cy="30" r="2" stroke="black" fill="orange" stroke-width="1" fill-opacity="1"></circle>
+                    <circle id='pos-6' class = 'pos' cx="60" cy="30" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                    <circle id='pos-7' class = 'pos'  cx="85" cy="30" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+
+                    <circle  id='pos-8' class = 'pos' cx="15" cy="50" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                    <circle  id='pos-9' class = 'pos' cx="32" cy="50" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                    <circle  id='pos-10' class = 'pos' cx="45" cy="50" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                    <circle  id='pos-11' class = 'pos' cx="55" cy="50" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                    <circle  id='pos-12' class = 'pos' cx="68" cy="50" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                    <circle  id='pos-13' class = 'pos' cx="85" cy="50" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+
+                    <circle  id='pos-14' class = 'pos' cx="15" cy="70" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                    <circle  id='pos-15' class = 'pos' cx="25" cy="70" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                    <circle  id='pos-16' class = 'pos' cx="43" cy="70" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                    <circle  id='pos-17' class = 'pos' cx="57" cy="70" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                    <circle  id='pos-18' class = 'pos' cx="75" cy="70" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                    <circle  id='pos-19' class = 'pos' cx="85" cy="70" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                    
+                    <circle  id='pos-20' class = 'pos' cx="15" cy="95" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                    <circle  id='pos-21' class = 'pos' cx="40" cy="95" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                    <circle  id='pos-22' class = 'pos' cx="60" cy="95" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                    <circle  id='pos-23' class = 'pos' cx="85" cy="95" r="2" stroke="black" fill="black" stroke-width="1" fill-opacity="1"></circle>
+                                   
+                    
+                </svg>
+
+            </div>
+
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
